@@ -5,7 +5,7 @@ public class StrassenWinograd {
     StrassenWinogradStep strassenWinogradStep = new StrassenWinogradStep();
     StrassenNaiv strassenNaiv = new StrassenNaiv(); // usado para llamar al metodo max
 
-    public void StrassenWinograd(double[][] matrizA, double[][] matrizB, double[][] matrizC, int N, int P, int M) {
+    public double[][] StrassenWinograd_(double[][] matrizA, double[][] matrizB, double[][] matrizC, int N, int P, int M) {
 
         int MaxSize, k, m, NewSize, i, j;
         MaxSize = strassenNaiv.max(N,P);
@@ -53,6 +53,7 @@ public class StrassenWinograd {
                 matrizC[i][j] = AuxResult[i][j];
             }
         }
+        return matrizC;
     }
 
 

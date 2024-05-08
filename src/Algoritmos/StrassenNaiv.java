@@ -4,7 +4,7 @@ public class StrassenNaiv extends NaivStandar{
 
     StrassenNaivStep strassenNaivStep = new StrassenNaivStep();
 
-    public void StrassenNaiv(double[][] matrizA, double[][] matrizB, double[][] matrizC, int N, int P, int M) {
+    public double[][] StrassenNaiv_(double[][] matrizA, double[][] matrizB, double[][] matrizC, int N, int P, int M) {
         // Variables para cálculos relacionados con el tamaño de las matrices y el método de Strassen
         int MaxSize, k, m, NewSize, i, j;
 
@@ -62,6 +62,7 @@ public class StrassenNaiv extends NaivStandar{
                 matrizC[i][j] = AuxResult[i][j];
             }
         }
+        return matrizC;
     }
 
     public int max(int N, int P) {

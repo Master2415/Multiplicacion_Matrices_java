@@ -3,7 +3,7 @@ package Algoritmos;
 public class NaivLoopUnrollingTwo {
 
     // Constructor de la clase NaivLoopUnrollingTwo que recibe tres matrices y tres enteros para las dimensiones de las matrices
-    public void NaivLoopUnrollingTwo(double[][] matrizA, double[][] matrizB, double[][] matrizC, int N, int P, int M) {
+    public double[][] NaivLoopUnrolling_Two(double[][] matrizA, double[][] matrizB, double[][] matrizC, int N, int P, int M) {
         // Declaración de variables enteras i, j, k y una variable auxiliar para almacenar temporariamente resultados
         int i, j, k;
         double aux;
@@ -42,5 +42,6 @@ public class NaivLoopUnrollingTwo {
                 }
             }
         }
+        return matrizC;
     }
 }

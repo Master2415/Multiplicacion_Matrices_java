@@ -1,9 +1,10 @@
 package Algoritmos;
 
 public class WinogradScaled {
+
     private WinogradOriginal winogradOriginal = new WinogradOriginal();
 
-    public void WinogradScaled(double[][] A, double[][] B, double[][] Result, int N, int P, int M) {
+    public double[][] WinogradScaled_(double[][] A, double[][] B, double[][] Result, int N, int P, int M) {
         int i;
 
         // Crear copias escaladas de A y B
@@ -26,7 +27,8 @@ public class WinogradScaled {
         MultiplyWithScalar(B, CopyB, P, M, Math.pow(2, -lambda));  // Necesitas implementar MultiplyWithScalar
 
         // Utilizar Winograd con las matrices escaladas
-        winogradOriginal.WinogradOriginal(CopyA, CopyB, Result, N, P, M);  // Necesitas implementar WinogradOriginal
+        winogradOriginal.WinogradOriginal_(CopyA, CopyB, Result, N, P, M);  // Necesitas implementar WinogradOriginal
+        return Result;
     }
 
     // Función que multiplica una matriz por un escalar y almacena el resultado en otra matriz

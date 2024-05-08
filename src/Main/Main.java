@@ -18,7 +18,7 @@ public class Main {
     private static void run() throws IOException {
         // Crear.crearMatrizMain(); // No es neceario, ya que las matrices estan en persistencia, usarlo para crearlas
         // m.Metodos_Accion_run(); // Por si queremos guardar el resultado de las matrices
-        mt.run();
+        mt.run_Tiempo(); //
     }
 
 }

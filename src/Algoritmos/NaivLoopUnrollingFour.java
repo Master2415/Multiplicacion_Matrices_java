@@ -2,7 +2,7 @@ package Algoritmos;
 
 public class NaivLoopUnrollingFour {
     // Constructor de la clase NaivLoopUnrollingFour que recibe tres matrices y tres enteros para las dimensiones de las matrices
-    public void NaivLoopUnrollingFour(double[][] A, double[][] B, double[][] Result, int N, int P, int M) {
+    public double[][] NaivLoopUnrollingFour_(double[][] A, double[][] B, double[][] Result, int N, int P, int M) {
         // Declaración de variables enteras i, j, k y una variable auxiliar para almacenar temporariamente resultados
         int i, j, k;
         double aux;
@@ -66,6 +66,7 @@ public class NaivLoopUnrollingFour {
                 }
             }
         }
+        return Result;
     }
 }
 

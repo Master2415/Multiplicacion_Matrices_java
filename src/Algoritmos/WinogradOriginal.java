@@ -1,7 +1,7 @@
 package Algoritmos;
 
 public class WinogradOriginal {
-    public void WinogradOriginal(double[][] A, double[][] B, double[][] Result, int N, int P, int M) {
+    public double[][] WinogradOriginal_(double[][] A, double[][] B, double[][] Result, int N, int P, int M) {
         int i, j, k;
         double aux;
         int upsilon = P % 2;
@@ -64,6 +64,7 @@ public class WinogradOriginal {
         // Liberación de memoria asignada a los vectores y z
         y = null;
         z = null;
+        return Result;
     }
 }
 
