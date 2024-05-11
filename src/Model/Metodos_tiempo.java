@@ -1,11 +1,14 @@
 package Model;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 
 public class Metodos_tiempo {
 
     private final Metodos_Accion metodosAccion = new Metodos_Accion();
 
+    // Metodo que muestra los tiempos registrados, creado con el fin de ejecutar y ver los tiempos en la consola, listo para ser llamado al main
     public void run_Tiempo() throws IOException {
         tiempoNaivOnArray();
         tiempoNaivLoopUnrollingTwo();
@@ -23,6 +26,89 @@ public class Metodos_tiempo {
         tiempov_3SequentialBlock();
         tiempov_4ParallelBlock();
     }
+
+    // Guarda los tiempos registrados en un txt
+    public void run_Tiempo_txt() throws IOException {
+        guardarTiempo("NaivOnArray_Java");
+        guardarTiempo("NaivLoopUnrollingTwo_Java");
+        guardarTiempo("NaivLoopUnrollingFour_Java");
+        guardarTiempo("WinogradOriginal_Java");
+        guardarTiempo("WinogradScaled_Java");
+        guardarTiempo("StrassenNaiv_Java");
+        guardarTiempo("StrassenWinograd_Java");
+        guardarTiempo("lll_3SequentialBlock_Java");
+        guardarTiempo("lll_4ParallelBlock_Java");
+        guardarTiempo("III_5_Enhanced_Parallel_Block_Java");
+        guardarTiempo("lV_3SequentialBlock_Java");
+        guardarTiempo("lV_4ParallelBlock_Java");
+        guardarTiempo("lV_5EnhancedParallelBlock_Java");
+        guardarTiempo("V_3SequentialBlock_Java");
+        guardarTiempo("V_4ParallelBlock_Java");
+    }
+
+
+    private void guardarTiempo(String nombreMetodo) throws IOException {
+        long inicioTiempo = System.nanoTime();
+        switch (nombreMetodo) {
+            case "NaivOnArray_Java":
+                metodosAccion.x_NaivOnArray();
+                break;
+            case "NaivLoopUnrollingTwo_Java":
+                metodosAccion.x_NaivLoopUnrollingTwo();
+                break;
+            case "NaivLoopUnrollingFour_Java":
+                metodosAccion.x_NaivLoopUnrollingFour();
+                break;
+            case "WinogradOriginal_Java":
+                metodosAccion.x_WinogradOriginal();
+                break;
+            case "WinogradScaled_Java":
+                metodosAccion.x_WinogradScaled();
+                break;
+            case "StrassenNaiv_Java":
+                metodosAccion.x_StrassenNaiv();
+                break;
+            case "StrassenWinograd_Java":
+                metodosAccion.x_StrassenWinograd();
+                break;
+            case "lll_3SequentialBlock_Java":
+                metodosAccion.x_lll_3SequentialBlock();
+                break;
+            case "lll_4ParallelBlock_Java":
+                metodosAccion.x_III_4_Parallel_Block();
+                break;
+            case "III_5_Enhanced_Parallel_Block_Java":
+                metodosAccion.x_iii5EnhancedParallelBlock();
+                break;
+            case "lV_3SequentialBlock_Java":
+                metodosAccion.x_lV_3SequentialBlock();
+                break;
+            case "lV_4ParallelBlock_Java":
+                metodosAccion.x_lV_4ParallelBlock();
+                break;
+            case "lV_5EnhancedParallelBlock_Java":
+                metodosAccion.x_llV_5EnhancedParallelBlock();
+                break;
+            case "V_3SequentialBlock_Java":
+                metodosAccion.x_v_3SequentialBlock();
+                break;
+            case "V_4ParallelBlock_Java":
+                metodosAccion.x_v_4ParallelBlock();
+                break;
+            default:
+                System.out.println("Nombre de método no válido");
+                return; // Salir del método si el nombre de método no es válido
+        }
+        long finTiempo = System.nanoTime();
+        long resultado = finTiempo - inicioTiempo;
+
+        // Guardar el resultado en el archivo
+        BufferedWriter writer = new BufferedWriter(new FileWriter("C:/ALL/Codigos/WS_Python/WS/Metodos_de_multiplicacion/Tiempo_Registrado/tiempos.txt", true));
+        // BufferedWriter writer = new BufferedWriter(new FileWriter("C:/ALL/Codigos/WS_Java/Analisis_Algoritmos/Multiplicacion_Matrices/src/Tiempo_Registrado/tiempos.txt", true));
+        writer.write(resultado + ": " + nombreMetodo + "\n");
+        writer.close();
+    }
+
 
     public void tiempoNaivOnArray() throws IOException {
         long inicioTiempo = System.nanoTime();

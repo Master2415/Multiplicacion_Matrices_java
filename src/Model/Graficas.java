@@ -14,6 +14,7 @@ public class Graficas {
 
     private final Metodos_Accion metodosAccion = new Metodos_Accion();
 
+    // Metodo que encapsula el metodo generarGraficas, listo para ser llamado por el main
     public void run_Tiempo_Graficas() {
         try {
             generarGrafica();
@@ -195,6 +196,7 @@ public class Graficas {
         frame.setVisible(true);
     }
 
+    // Obtenemos el tiempo por metodo
     private long obtenerTiempo(Runnable metodo) throws IOException {
         long inicio = System.nanoTime();
         metodo.run();

@@ -1,0 +1,30 @@
+248688900: tiempo de NaivOnArray nanosegundos Java
+123360500: tiempo de NaivLoopUnrollingTwo nanosegundos Java
+106571400: tiempo de NaivLoopUnrollingFour nanosegundos Java
+147636400: tiempo de NWinogradOriginal nanosegundos Java
+94636800: tiempo de WinogradScaled nanosegundos Java
+124941500: tiempo de StrassenNaiv nanosegundos Java
+123037900: tiempo de StrassenWinograd nanosegundos Java
+88267600: tiempo de lll 3SequentialBlock nanosegundos Java
+107737900: tiempo de lll 4ParallelBlock nanosegundos Java
+120712300: tiempo de III_5_Enhanced_Parallel_Block nanosegundos Java
+65996300: tiempo de lV 3SequentialBlock nanosegundos Java
+106592800: tiempo de lV_4ParallelBlock nanosegundos Java
+75329600: tiempo de lV_5EnhancedParallelBlock nanosegundos Java
+95896700: tiempo de V_3SequentialBlock nanosegundos Java
+71228800: tiempo de V 4ParallelBlock nanosegundos Java
+222407100: tiempo de NaivOnArray nanosegundos Java
+117838700: tiempo de NaivLoopUnrollingTwo nanosegundos Java
+102448100: tiempo de NaivLoopUnrollingFour nanosegundos Java
+150378400: tiempo de NWinogradOriginal nanosegundos Java
+97323200: tiempo de WinogradScaled nanosegundos Java
+149043600: tiempo de StrassenNaiv nanosegundos Java
+148125500: tiempo de StrassenWinograd nanosegundos Java
+91679900: tiempo de lll 3SequentialBlock nanosegundos Java
+166635800: tiempo de lll 4ParallelBlock nanosegundos Java
+153470700: tiempo de III_5_Enhanced_Parallel_Block nanosegundos Java
+68273700: tiempo de lV 3SequentialBlock nanosegundos Java
+94803500: tiempo de lV_4ParallelBlock nanosegundos Java
+116443500: tiempo de lV_5EnhancedParallelBlock nanosegundos Java
+72254300: tiempo de V_3SequentialBlock nanosegundos Java
+75354200: tiempo de V 4ParallelBlock nanosegundos Java
