@@ -17,11 +17,11 @@ public class Main {
 
     /*
      * Importante.
-     * Antes de ejecutar el codigo primero verificar que existan las matrices, para asi llamar las instancias
+     * Antes de ejecutar el codigo primero deben existir las matrices, para asi llamar las otras instancias
      */
     private static void run() throws IOException {
         //Crear.crearMatrizMain(); // Llamado para crear las matrices
-        //m.Metodos_Accion_run(); // Por si queremos guardar el resultado de las matrices, como prueba
+        m.Metodos_Accion_run(); // Por si queremos guardar el resultado de las matrices ya sea de prueba o el resultado real de las matrices
         //mt.run_Tiempo(); // llamado para visualizar los tiempos en consola
         //mt.run_Tiempo_txt(); // guarda el tiempo de los metodos en un archivo txt
         //g.run_Tiempo_Graficas(); // Genera las graficas de las multplicaciones

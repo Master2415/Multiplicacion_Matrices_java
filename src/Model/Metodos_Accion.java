@@ -3,6 +3,9 @@ package Model;
 import Algoritmos.*;
 
 import java.io.IOException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 public class Metodos_Accion {
 
@@ -23,22 +26,69 @@ public class Metodos_Accion {
     private final V_4_Parallel_Block v4ParallelBlock = new V_4_Parallel_Block();
 
     // Opcional llamarlo en el run() de la clase Main, creado con el fin de ver el resultado de las matrices en txt
+    // Este metodo implementa hilos para manejar la ejecucion de tareas en paralelo
+    // Cada bloque lo ordene de manera aleatoria
     public void Metodos_Accion_run() throws IOException {
-        x_NaivOnArray();
-        x_NaivLoopUnrollingTwo();
-        x_NaivLoopUnrollingFour();
-        x_WinogradOriginal();
-        x_WinogradScaled();
-        x_StrassenNaiv();
-        x_StrassenWinograd();
-        x_lll_3SequentialBlock();
-        x_III_4_Parallel_Block();
-        x_iii5EnhancedParallelBlock();
-        x_lV_3SequentialBlock();
-        x_lV_4ParallelBlock();
-        x_llV_5EnhancedParallelBlock();
-        x_v_3SequentialBlock();
-        x_v_4ParallelBlock();
+        // Crear un ExecutorService con un número adecuado de hilos
+        ExecutorService executor = Executors.newFixedThreadPool(3);
+
+        // Agregar tareas al ExecutorService
+        executor.submit(this::runFirstBatch);
+        executor.submit(this::runSecondBatch);
+        executor.submit(this::runThirdBatch);
+        executor.submit(this::runFourtBatch);
+
+        // Cerrar el ExecutorService y esperar a que terminen todas las tareas
+        executor.shutdown();
+        try {
+            executor.awaitTermination(2, TimeUnit.HOURS); // tiempo minimo para ejecucion de bloques. con 1 arroja mal resultado
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            throw new IOException("La ejecución fue interrumpida", e);
+        }
+    }
+
+    private void runFirstBatch() {
+        try {
+            x_NaivOnArray();
+            x_NaivLoopUnrollingTwo();
+            x_NaivLoopUnrollingFour();
+            x_WinogradOriginal();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void runSecondBatch() {
+        try {
+            x_StrassenNaiv();
+            x_StrassenWinograd();
+            x_lll_3SequentialBlock();
+            x_III_4_Parallel_Block();
+            x_iii5EnhancedParallelBlock();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void runThirdBatch() {
+        try {
+            x_lV_3SequentialBlock();
+            x_lV_4ParallelBlock();
+            x_llV_5EnhancedParallelBlock();
+            x_v_3SequentialBlock();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void runFourtBatch() {
+        try {
+            x_v_4ParallelBlock();
+            x_WinogradScaled();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 
@@ -315,7 +365,7 @@ public class Metodos_Accion {
 
         }
         double[][] resultadoPrueba = iv5EnhancedParallelBlock.lV_5EnhancedParallelBlock(matriz1_prueba, matriz2_prueba, matrizCPrueba, zicePrueba);
-        guardarResultado(resultadoPrueba, "lv4ParallelBlock"); //Guardamos el resultado de la multiplicacion en el txt
+        guardarResultado(resultadoPrueba, "iv5EnhancedParallelBlock"); //Guardamos el resultado de la multiplicacion en el txt
     }
 
     public void x_v_3SequentialBlock() throws IOException {
